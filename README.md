@@ -9,3 +9,14 @@ I wanted a solution that worked just locally on my system, without causing furth
 
 ## Pre-Requisites
 Tested on Ubuntu 20.04 with python3.
+
+## Usage
+`python3 zoom.py --chat=<cmd> --clear=<cmd> --join=<cmd> --leave=<cmd>`
+
+
+The individual commands will be called (shell scripts) when the respective events happen.
+
+## How it works
+The tool intercepts the dbus and reacts on individual events. 
+* Meeting join/leave is triggered by zoom disabling or enabling the screen saver. 
+* The chat messages are triggered by zoom updating the zoom icon in the status bar (where it shows a small red dot when messages are pending). Or the icon is reset to the normal state (without any dot/number).
